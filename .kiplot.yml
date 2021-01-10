@@ -1,0 +1,51 @@
+kiplot:
+  version: 1
+
+preflight:
+  update_xml: false
+  run_drc: false
+  check_zone_fills: true
+  ignore_unconnected: false
+
+outputs:
+  - name: "Gerber files"
+    type: gerber
+    options:
+      # general options
+      plot_sheet_reference: false
+      plot_footprint_refs: true
+      plot_footprint_values: true
+      force_plot_invisible_refs_vals: false
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: true
+      tent_vias: true
+      use_aux_axis_as_origin: false
+      line_width: 0.1
+
+      # gerber options
+      use_protel_extensions: false
+      create_gerber_job_file: false
+      subtract_mask_from_silk: false
+      gerber_precision: 4.6
+      use_gerber_x2_attributes: false
+      use_gerber_net_attributes: false
+
+    layers:
+      - layer: F.Cu
+      - layer: B.Cu
+      - layer: F.SilkS
+      - layer: B.SilkS
+      - layer: F.Mask
+      - layer: B.Mask
+      - layer: Edge.Cuts
+  
+  - name: "Drill files"
+    type: excellon
+    options:
+      metric_units: true
+      pth_and_npth_single_file: false
+      use_aux_axis_as_origin: false
+      minimal_header: false
+      mirror_y_axis: false
+      map:
+        type: 'gerber'
