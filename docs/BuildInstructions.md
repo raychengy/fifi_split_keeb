@@ -71,7 +71,7 @@ Check out QMK official documentation on [Setting Up Your QMK Environment](https:
 Add the Miryoku development branch into your existing QMK build environment.
 
 ```
-git remote add manna-harbour git@github.com:manna-harbour/qmk_firmware.git
+git remote add manna-harbour git@github.com:manna-harbour/miryoku_qmk.git
 git fetch manna-harbour
 git checkout --track manna-harbour/miryoku
 ```
